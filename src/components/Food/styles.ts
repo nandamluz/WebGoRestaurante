@@ -7,6 +7,9 @@ interface IFoodPlateProps {
 export const Container = styled.div<IFoodPlateProps>`
   background: #f0f0f5;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   header {
     background: #ffb84d;
@@ -31,6 +34,8 @@ export const Container = styled.div<IFoodPlateProps>`
   section.body {
     padding: 30px;
 
+
+
     h2 {
       color: #3d3d4d;
     }
@@ -54,7 +59,6 @@ export const Container = styled.div<IFoodPlateProps>`
   }
 
   section.footer {
-    display: flex;
     justify-content: space-between;
     align-items: center;
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { FiEdit3, FiTrash } from 'react-icons/fi';
+import api from '../../services/api';
 
 import { Container } from './styles';
 
@@ -19,6 +20,7 @@ interface IProps {
   handleEditFood: (food: IFoodPlate) => void;
 }
 
+
 const Food: React.FC<IProps> = ({
   food,
   handleDelete,
@@ -28,24 +30,29 @@ const Food: React.FC<IProps> = ({
 
   async function toggleAvailable(): Promise<void> {
     // TODO UPDATE STATUS (available)
+  setIsAvailable(!isAvailable)
+
   }
 
   function setEditingFood(): void {
-    // TODO - SET THE ID OF THE CURRENT ITEM TO THE EDITING FOOD AND OPEN MODAL
+    handleEditFood(food);
+
   }
 
   return (
     <Container available={isAvailable}>
-      <header>
-        <img src={food.image} alt={food.name} />
-      </header>
-      <section className="body">
-        <h2>{food.name}</h2>
-        <p>{food.description}</p>
-        <p className="price">
-          R$ <b>{food.price}</b>
-        </p>
-      </section>
+      <div>
+        <header>
+          <img src={food.image} alt={food.name} />
+        </header>
+        <section className="body">
+          <h2>{food.name}</h2>
+          <p>{food.description}</p>
+          <p className="price">
+            R$ <b>{food.price}</b>
+          </p>
+        </section>
+      </div>
       <section className="footer">
         <div className="icon-container">
           <button
